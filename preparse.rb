@@ -4,6 +4,8 @@ if ARGV.length == 0 then
   exit 1
 end
 
+IMG_FOLDER = "images"
+
 file = File.open(ARGV[0]).read.split("\n")
 
 output = ARGV[1] if ARGV.length > 1
@@ -62,21 +64,20 @@ file.each do |line|
 
   # Image as the main attraction
   if type == "@^" then
-    content = "<img src=\"pictures/#{content}\" style=\"margin-top: -50px\" />"
+    #content = "<img src=\"#{IMG_FOLDER}/#{content}\" style=\"margin-top: -50px\" />"
+    content = "![Image](#{IMG_FOLDER}/#{content})"
     type = ""
   end
 
   # Image as the main attraction, as big as you can, please
   if type == "@^^" then
-    content = "<img src=\"pictures/#{content}\" style=\"margin-top: -50px; height: 700px;\" />"
+    content = "![Image](#{IMG_FOLDER}/#{content})"
     type = ""
   end
 
   # Image in the center
   if type == "@=" then
-
-    append = " <!-- .slide: class=\"center\" -->"
-	content = "<div style='margin: 0 auto;'><p align='center'><img src='pictures/#{content}'></p></div> "
+    content = "![Image](#{IMG_FOLDER}/#{content})"
     type = ""
   end
 
@@ -86,14 +87,14 @@ file.each do |line|
     type.gsub!("#>","")
   end
 
-  # Shortcut for images. Assumes assets live in pictures/
+  # Shortcut for images. Assumes assets live in IMG_FOLDER/
   if type == "@" then
-    content = "<img src=\"pictures/#{content}\" />"
+    content = "<img src=\"#{IMG_FOLDER}/#{content}\" />"
     type.gsub!("@","")
   end
 
   if type == "~@" then
-    append = "<!-- .slide: data-background-image=\"pictures/#{content}\"-->"
+    append = "<!-- .slide: data-background-image=\"#{IMG_FOLDER}/#{content}\"-->"
     content = ""
     type = ""
   end
@@ -105,7 +106,7 @@ file.each do |line|
   end
 
   if type == '!' then
-    append = " <!-- .slide: class=\"center\" -->"
+    #append = " <!-- .slide: class=\"center\" -->"
     type.gsub!("!","")
     if content.include? "|" then
 	    c = "<div style='width: 100%; margin: 0 auto;'><p align='center'>"
@@ -113,12 +114,13 @@ file.each do |line|
 	    a = 800 / l
 	    content.split("|").each do |s|
 	      t = ( s.include? "png") ? s.strip! : "#{s.strip!}.svg"
-	      c += "<img height='#{a}px' src='pictures/#{t}'>"
+	      c += "<img height='#{a}px' src='#{IMG_FOLDER}/#{t}'>"
         end
         c += "</p></div>"
         content = c
     else 
-	    content = "<div style='width: 50%; margin: 0 auto;'><p align='center'><img height='400px' src='pictures/#{content}.svg'></p></div>"
+        content = "![Image](#{IMG_FOLDER}/#{content}.svg)"
+	    #content = "<div style='width: 50%; margin: 0 auto;'><p align='center'><img height='400px' src='#{IMG_FOLDER}/#{content}.svg'></p></div>"
     end
   end
 
@@ -130,6 +132,12 @@ file.each do |line|
   if type == "vv" then
 	content = "<span class='foot'>#{content}</span>"
     type.gsub!("vv","")
+  end
+
+  # PODIUM - change notes
+  if type == "Note:" then
+    content = "\n???\n\n#{content}\n"
+    type.gsub!("Note:","")
   end
 
   # Ignore generic line separators
@@ -146,7 +154,7 @@ file.each do |line|
 
   # Center
   if type.include? "=" then
-    append = " <!-- .slide: class=\"center\" -->"
+#    append = " <!-- .slide: class=\"center\" -->"
     type.gsub!("=","")
   end
 
@@ -154,8 +162,8 @@ file.each do |line|
   
   # h0
   if ["!#","!#="].include? type then
-    append += " <!-- .slide: class=\"center\" -->"
-    append += " <!-- .element style=\"font-size: 5em\" --> "
+#    append += " <!-- .slide: class=\"center\" -->"
+#    append += " <!-- .element style=\"font-size: 5em\" --> "
     type.gsub!("!","")
   end
 
