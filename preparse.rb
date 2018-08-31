@@ -65,19 +65,19 @@ file.each do |line|
   # Image as the main attraction
   if type == "@^" then
     #content = "<img src=\"#{IMG_FOLDER}/#{content}\" style=\"margin-top: -50px\" />"
-    content = "![Image](#{IMG_FOLDER}/#{content})"
+    content = "class: top, image\n![Image](#{IMG_FOLDER}/#{content})"
     type = ""
   end
 
   # Image as the main attraction, as big as you can, please
   if type == "@^^" then
-    content = "![Image](#{IMG_FOLDER}/#{content})"
+    content = "class: image-main\n![Image](#{IMG_FOLDER}/#{content})"
     type = ""
   end
 
   # Image in the center
   if type == "@=" then
-    content = "![Image](#{IMG_FOLDER}/#{content})"
+    content = "class: middle, center, image\n![Image](#{IMG_FOLDER}/#{content})"
     type = ""
   end
 
@@ -89,18 +89,18 @@ file.each do |line|
 
   # Shortcut for images. Assumes assets live in IMG_FOLDER/
   if type == "@" then
-    content = "<img src=\"#{IMG_FOLDER}/#{content}\" />"
+    content = "![Image](#{IMG_FOLDER}/#{content})"
     type.gsub!("@","")
   end
 
   if type == "~@" then
-    append = "<!-- .slide: data-background-image=\"#{IMG_FOLDER}/#{content}\"-->"
+    append = "<style>background-image: url(\"#{IMG_FOLDER}/#{content}\");</style>"
     content = ""
     type = ""
   end
 
   if type == '~~~' then
-    append = "<!-- .slide: data-background=\"#000\"-->"
+    append = "class: background-black"
     content = ""
     type = ""
   end
@@ -119,7 +119,7 @@ file.each do |line|
         c += "</p></div>"
         content = c
     else 
-        content = "![Image](#{IMG_FOLDER}/#{content}.svg)"
+        content = "class: middle, center\n![Image](#{IMG_FOLDER}/#{content}.svg)"
 	    #content = "<div style='width: 50%; margin: 0 auto;'><p align='center'><img height='400px' src='#{IMG_FOLDER}/#{content}.svg'></p></div>"
     end
   end
@@ -142,7 +142,7 @@ file.each do |line|
 
   # Ignore generic line separators
   if type == "---" then
-    result << type
+    result << type #"---\nclass: middle, center\n"
     next
   end
 
@@ -154,20 +154,19 @@ file.each do |line|
 
   # Center
   if type.include? "=" then
+    #append = "class: middle, center"
 #    append = " <!-- .slide: class=\"center\" -->"
     type.gsub!("=","")
   end
 
-
-  
   # h0
   if ["!#","!#="].include? type then
 #    append += " <!-- .slide: class=\"center\" -->"
 #    append += " <!-- .element style=\"font-size: 5em\" --> "
     type.gsub!("!","")
   end
-
-  r = "#{type} #{content}#{append}"
+   
+  r = "#{type}#{content}#{append}"
   result << r
 end
 
