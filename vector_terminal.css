@@ -1,0 +1,77 @@
+
+/*** Vector CSS Terminal Window
+Adapted from https://guides.codechewing.com/mac-terminal-shell-css-html
+Added: Zenburn, other fancy.
+***/
+
+.shell-wrap {
+  width: 1000px;
+  margin: 20px auto 0 auto !important;
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+
+  background: rgb(63,63,63) !important;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.shell-top-bar {
+  text-align: center;
+  color: #525252;
+  padding: 5px 0 !important;
+  margin: 0;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+  font-size: 0.45em !important;
+  font-family: 'BlinkMacSystemFont', -apple-system, sans-serif !important;
+  border: 1px solid #CCCCCC;
+  border-bottom: none;
+
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-topright: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+  background: #f7f7f7; /* Old browsers */
+  background: -moz-linear-gradient(top,  #f7f7f7 0%, #B8B8B8 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#B8B8B8)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #f7f7f7 0%,#B8B8B8 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #f7f7f7 0%,#B8B8B8 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #f7f7f7 0%,#B8B8B8 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #f7f7f7 0%,#B8B8B8 100%); /* W3C */
+}
+
+.shell-body {
+  margin: 0;
+  height: 550px;
+  text-align: left;
+  letter-spacing: -0.4px !important;
+  font-size: 17pt !important;
+  color: rgb(199,199,199);
+  font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace !important;
+  line-height: 1.4em !important;
+
+  padding: 0px 10px 10px 10px !important;
+  margin-top: -15px !important;
+
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.shell-body p:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.shell-body p {
+  word-wrap: break-word;
+  padding: 5px !important;
+  position: relative;
+  padding: 0 0 0 15px;
+}
