@@ -71,10 +71,29 @@ Use [inotifyrun](http://exyr.org/2011/inotify-run/) to automatically run the par
 ## Samples
 
 * `sample_input.md`
+```
+$$# Python
+py- >>> a = 256
+py- >>> b = 256
+py- >>> a is b
+py .green[True]
+---
+```
+
 * `sample_output.md`
 * `sample_rendered.png`
 
 ![image](sample_rendered.png)
+
+Lines enter into the slide one at a time, ending at the final line, then goes into the next slide
+
+Assumes `theme.css` exists
+
+## Podium tips
+
+Folder called "TalkName.podium" contains a slides.md file, and an optional `theme.css`, and other folders, like `images/`
+
+
 
 
 # Usefulness
