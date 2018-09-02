@@ -1,0 +1,386 @@
+/*******************************
+ * Basic slide layout and colors
+ ******************************/
+.hljs-default pre code, .code {
+  background-color: #fff !important;
+  padding: 0;
+}
+
+
+.remark-slide-content {
+    padding: 1em 6em 1em 6em;
+    font-family: 'PT Sans';
+    color: #000;
+}
+
+/***********************
+ * Common content markup
+ ***********************/
+
+h1, h2, h3 {
+    font-family: 'PT Sans';
+    font-weight: 600;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48pt;
+}
+
+h2 {
+    font-size: 36pt;
+}
+
+h3 {
+    font-size: 28pt;
+}
+
+p {
+    font-size: 24pt;
+    line-height: 1.4em;
+}
+
+li {
+    font-size: 24pt;
+    line-height: 1.4em;
+    margin: 0.4em 0;
+}
+
+li p {
+    margin: 0.4em 0;
+}
+
+pre {
+    white-space: pre-wrap;
+    max-width: 100%;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    max-height: 75%;
+    margin: 0 auto;
+}
+
+blockquote p:before {
+  color: #7f7f7c;
+  content: "“";
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.15em;
+  vertical-align: -0.35em;
+}
+
+blockquote p:after {
+  color: #7f7f7c;
+  content: "”";
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-left: 0.15em;
+  vertical-align: -0.55em;
+}
+
+cite {
+    color: #7f7f7c;
+    display: block;
+    text-align: right;
+    margin-top: 1em;
+}
+
+/* Quotes in a list don't need as much padding */
+li cite {
+    margin-top: 0;
+}
+
+/*********************************/
+/* Special content for footnotes */
+/*********************************/
+
+.center { vertical-align: middle }
+.wat { font-family: 'American Typewriter'; color: #F8BA00; font-weight: bold;}
+.new { font-family: 'American Typewriter'; color: #CB297B; font-weight: bold;}
+.why { font-family: 'American Typewriter'; color: #45E768; font-weight: bold;}
+.strike { text-decoration: line-through;}
+
+.wat-pos { font-size: 80pt; position:absolute; bottom: 4em; left: 2em;}
+.why-pos { font-size: 80pt; position:absolute; bottom: 1em; right: 1em;}
+
+.fix   { outline: 4px solid green; outline-offset: 5px; }
+.mark  { outline: 4px solid blue; outline-offset: 5px; }
+.focus { outline: 4px solid red; outline-offset: 5px; }
+
+.tinytext { 
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    line-height: 1;
+
+ }
+.fix-correct { 
+    border: 3px green solid; 
+    position: absolute;
+    left: 5.5em;
+    top: 4.4em;
+}
+.ps-error { color: red !important; font-weight: bold; }
+
+.fix-tilt { 
+    position: absolute;
+    font-size: 64pt;
+    bottom: 0em;
+    right: 1em;
+    color: grey;
+    font-family: monospace; 
+    font-weight: bold;
+    width: 100%;
+    text-align: right;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}   
+.righthead { 
+    font-size: 34pt;
+    float: right;
+    top: 1em;
+    color: grey;
+    font-family: monospace;
+    right: 1em;
+    width: 100%;
+    text-align: right;
+}   
+
+.footnotes {
+    font-size: 18pt;
+    position: absolute;
+    bottom: 2em;
+    right: 4em;
+    width: 80%;
+    text-align: right;
+}
+
+.footnotes a { color: grey }
+.footnotes p {
+    font-size: 18pt;
+    margin: 0.2em 0;
+}
+
+/*********************/
+/* Two column layout */
+/*********************/
+.left-column {
+  width: 45%;
+  float: left;
+}
+
+.right-column {
+  width: 45%;
+  float: right;
+}
+
+/****************/
+/* Title slides */
+/****************/
+
+.remark-slide-content.title {
+    vertical-align: middle;
+}
+
+.title h1 {
+    margin: 0.2em;
+}
+
+.title.emoticon h1 {
+    font-size: 128px;
+}
+
+.title.emoticon.flip h1 {
+    font-size: 80px;
+}
+
+.title.emoji h1 {
+    font-size: 256px;
+}
+
+.title h2 {
+    font-size: 36pt;
+    margin: 0.2em;
+    font-weight: bold;
+}
+
+.title h3 {
+    margin: 0.2em;
+    font-weight: normal;
+}
+
+/******************/
+/* Reverse slides */
+/******************/
+
+.remark-slide-content.reverse {
+  /*background-color: #272726;*/
+  color: #f6f7f1;
+}
+
+/***************/
+/* Logo slides */
+/***************/
+
+.remark-slide-content.logo img {
+  margin-top: 15%;
+}
+
+/*********************/
+/* Screenshot slides */
+/*********************/
+
+.remark-slide-content.screenshot img {
+}
+
+/************************/
+/* projection */
+
+.remark-slide-content.image img {
+  margin-top: -50px; max-height: 700px
+}
+.remark-slide-content.background-black {
+    background: #000;
+}
+.remark-slide-content.middle {
+    vertical-align: middle;
+}
+.remark-slide-content.center {
+    text-align: center;
+}
+/*********************/
+/* Django slides */
+/*********************/
+
+.remark-slide-content.django {
+  /*background-color: #092E20;*/
+}
+r { color: #d73a49 }
+l { color: #005cc5 }
+d { color: #032f62 }
+c { color: #6a737d; }
+o { color: #e36209}
+g { color: #6f42c1 }
+ty { color: rgb(215,254,185) }
+tg { color: rgb(0,135,6) }
+w { color: rgb(98,98,98); background-color: rgb(188,188,188)}
+ww { padding: 4px 7px 4px 7px; color: rgb(98,98,98); background-color: rgb(188,188,188)}
+tb { color: rgb(0,135,215) }
+ps { color: rgb(212,212,173) }
+dr { color: rgb(201,135,135) }
+ .left { text-align: left; }
+
+/* Flux font */ fl { font-family: "DTLProkyonST", regular}
+
+/* redacted font */ 
+@font-face { font-family: "RedactedB"; src: url("redacted-script-bold.ttf") format('truetype'); font-style:bold; }
+@font-face { font-family: "RedactedR"; src: url("redacted-script-regular.ttf") format('truetype'); font-style:normal; }
+rb { font-family: "RedactedB", regular;  }
+rr { font-family: "RedactedR", regular;  }
+
+.code { 
+   font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace !important;
+   margin: 0;
+   padding: -10px;
+} 
+pre code { 
+   font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace !important;
+   font-size: 24pt !important; 
+   line-height: 32pt !important; 
+   /*margin-left: -50pt !important;*/
+} 
+
+span.foot { position:absolute; top: 670px; right: 1em; font-size: 50%; color: grey}
+span.foot a { color: grey !important}
+.reveal a { color: black}
+
+/*** Vector CSS Terminal Window
+Adapted from https://guides.codechewing.com/mac-terminal-shell-css-html
+Added: Zenburn, mostly. 
+***/
+
+.shell-wrap {
+  width: 1000px;
+  margin: 20px auto 0 auto !important;
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+
+  background: rgb(63,63,63) !important;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.shell-top-bar {
+  text-align: center;
+  color: #525252;
+  padding: 5px 0 !important;
+  margin: 0;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+  font-size: 1em !important;
+  font-family: 'BlinkMacSystemFont', -apple-system, sans-serif !important; 
+  border: 1px solid #CCCCCC;
+  border-bottom: none;
+
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-topright: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+  background: #f7f7f7; /* Old browsers */
+  background: -moz-linear-gradient(top,  #f7f7f7 0%, #B8B8B8 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#B8B8B8)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #f7f7f7 0%,#B8B8B8 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #f7f7f7 0%,#B8B8B8 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #f7f7f7 0%,#B8B8B8 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #f7f7f7 0%,#B8B8B8 100%); /* W3C */
+}
+
+.shell-body {
+  margin: 0;
+  height: 470px;
+  text-align: left;
+  letter-spacing: -0.4px !important;
+  font-size: 17pt !important;
+  color: rgb(199,199,199);
+  font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace !important;
+  line-height: 1.4em !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+
+  padding: 0px 10px 10px 10px !important; 
+  margin-top: -15px !important;
+
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.shell-body p:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.shell-body p {
+  word-wrap: break-word;
+  padding: 5px !important;
+  position: relative;
+  padding: 0 0 0 15px;
+}
+
+/**********************************/
+

@@ -1,18 +1,27 @@
-# A slightly better toolchain for quicker formatting of markdown for reveal.js things
-
+# A slightly better toolchain for quicker formatting of podium markdown files
 
 `ruby preparse.rb input_file output_file`
 
-# Tool Chain
+## Requires - Podium
+
+https://github.com/pybee/podium
+
+## Tool Chain
 
  * Make a markdown file, e.g. `myslides.md`
  * Use these fancy shortcuts to extend the default functionality of the markdown format
  * run `ruby preparse.rb myslides.md`
   * defaults to standard out, or to the specifed file
- * require the `slides.md` in your `reveal.js` `index.html` file
- * customize your `data-markdown` options where appropriate
 
 ## Shortcuts
+
+This is just a subset of helpers
+
+### Helpful headers `$$#`
+
+As an example `$$#` automatically renderes to `.righthead[]`, which then links to the `.righthead` css style. 
+
+Helpful reminder, you can chain remark.js css defines by nesting, e.g.: `.styleone[.styletwo[word] .stylethree[another]]`
 
 ### Center `=`
 
@@ -22,15 +31,35 @@ If your default is `center: false`, then this adds `.slide: class="center"`
 
 If not using center, this automatically adds `margin-bottom` padding as to attempt to make your sides not rise like a hot-air balloon to the top of your deck
 
-### Fragment `-`
+### Code Segments
 
-Automatically adds `.element: class="fragment"`
+Podium uses https://highlightjs.org/static/demo/, but the markdown is.. annoying verbose
 
-### h0 `!#`
+```
+```python
+print("Python Code %s" % "here")
+```
 
-For when you need to make a point bigger than the point-size in a `h1`
+vs
 
-Useful in combination with `center`. 
+```
+py print("Python Code %s" % "here")
+```
+
+Using `py-` creates a fragment (click to show)
+
+Assumes you never use default paragraphs in your slides. (I don't. 🤷‍♀️)
+
+Supports inline formatting
+
+```
+py >>> print(".bold[this is important]")
+```
+
+## When in doubt
+
+Just default to useful Remark.js stuff https://github.com/gnab/remark
+
 
 ## Tips
 
@@ -41,9 +70,12 @@ Use [inotifyrun](http://exyr.org/2011/inotify-run/) to automatically run the par
 
 ## Samples
 
-* `index.html` - sample reveal.js index.html. [Use the most up to date library files](https://github.com/hakimel/reveal.js)
- * includes my defaults for making reveal not look like reveal (removing in screen navigation, etc)
-* [`input.md`](https://raw.githubusercontent.com/glasnt/adamant-capsicum/master/sample_input.md) and [`output.md`](https://raw.githubusercontent.com/glasnt/adamant-capsicum/master/sample_output.md) - sample input, and the automatically generated output
+* `sample_input.md`
+* `sample_output.md`
+* `sample_rendered.png`
+
+![image](sample_rendered.png)
+
 
 # Usefulness
 
@@ -52,3 +84,4 @@ YMMV
 # License
 
 See [LICENSE](blob/master/LICENSE)
+
