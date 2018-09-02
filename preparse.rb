@@ -12,6 +12,8 @@ output = ARGV[1] if ARGV.length > 1
 
 result = []
 
+codetoggle = false
+
 file.each do |line|
   append = ""
   type = line.split(" ").first
@@ -21,6 +23,19 @@ file.each do |line|
   end
 
   content = line.split(" ")[1..-1].join(" ")
+
+  if type.start_with?("```") then
+    codetoggle = !codetoggle
+  end
+  
+  if type.start_with?("--```") then
+    codetoggle = !codetoggle
+  end
+
+  if type == "$$#" then
+	content = ".righthead[#{content}]"
+    type.gsub!("$$#","")
+  end
 
   ### Vector Terminal
   ### requires Vector CSS Terminal Window CSS
@@ -35,7 +50,8 @@ file.each do |line|
   end
 
   if type == "$$py" then # Python Prompt
-    content = "&gt;&gt;&gt; #{content}<br>"
+    #content = "&gt;&gt;&gt; #{content}<br>"
+    content = "`>>>` #{content}<br>"
     type = ""
   end
 
@@ -44,7 +60,8 @@ file.each do |line|
     type = ""
   end
   if type == "$$pyw" then # both Python Prompt and Whitespace ending
-    content = "&gt;&gt;&gt; #{content}<w>&nbsp;</w>"
+    #content = "&gt;&gt;&gt; #{content}<w>&nbsp;</w>"
+    content = "`>>>` #{content}<w>&nbsp;</w>"
     type = ""
   end
   if type == "$$pd" then # Python dot dot dot 
@@ -94,7 +111,7 @@ file.each do |line|
   end
 
   if type == "~@" then
-    append = "<style>background-image: url(\"#{IMG_FOLDER}/#{content}\");</style>"
+    append = "background-image: url(\"#{IMG_FOLDER}/#{content}\")"
     content = ""
     type = ""
   end
@@ -130,7 +147,7 @@ file.each do |line|
     type.gsub!("vv=","")
   end
   if type == "vv" then
-	content = "<span class='foot'>#{content}</span>"
+	content = ".footnotes[#{content}]"
     type.gsub!("vv","")
   end
 
@@ -146,28 +163,59 @@ file.each do |line|
     next
   end
 
+  codestyles = {
+    "py": "python", "rb": "ruby", "js": "javascript", "java": "java", "pl": "perl", "sh": "bash", "hs": "haskell",
+    "iex": "elixir", "sc": "scala", "php": "php", "ps": "powershell",
+    }  
+
+
+  codestyles.keys().each do |code|
+    if type.start_with? "#{code}-" then
+      content = "<pre><code class=\"#{codestyles[code]}\">#{content}</code></pre>\n--\n"
+      type.gsub!("#{code}-","")
+    end
+    if type.start_with? "#{code}" then
+      content = "<pre><code class=\"#{codestyles[code]}\">#{content}</code></pre>\n"
+      type.gsub!("#{code}","")
+    end
+  end
+
   # Fragment
-  if type.end_with? "-" then
-    append = " <!-- .element: class=\"fragment\" -->"
-    type.gsub!("-","")
+  if type.end_with? "--" then
+    result << type 
+    next
   end
 
   # Center
-  if type.include? "=" then
-    #append = "class: middle, center"
-#    append = " <!-- .slide: class=\"center\" -->"
-    type.gsub!("=","")
+  if type.include? "##=" then
+    content = "class: title\n## #{content}"
+    type.gsub!("##=","")
+  end
+  if type.include? "#=" then
+    content = "class: title\n# #{content}"
+    type.gsub!("#=","")
   end
 
   # h0
   if ["!#","!#="].include? type then
-#    append += " <!-- .slide: class=\"center\" -->"
-#    append += " <!-- .element style=\"font-size: 5em\" --> "
     type.gsub!("!","")
   end
    
-  r = "#{type}#{content}#{append}"
-  result << r
+  r = "#{type} #{content}#{append}".strip()
+
+
+  if codetoggle then
+    # Ignore all changes if we're in a codeblock
+    newline = line
+  else
+    newline =  r
+  end
+
+  newline.gsub!("&lt;","`<`")
+  newline.gsub!("&gt;","`>`")
+
+  result << newline
+
 end
 
 if output
