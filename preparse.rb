@@ -165,7 +165,8 @@ file.each do |line|
 
   codestyles = {
     "py": "python", "rb": "ruby", "js": "javascript", "java": "java", "pl": "perl", "sh": "bash", "hs": "haskell",
-    "iex": "elixir", "sc": "scala", "php": "php", "ps": "powershell",
+    "iex": "elixir", "sc": "scala", "php": "php", "ps": "powershell", "co": "", "sql": "sql", "go": "go",
+    "css": "css", "html": "html", "pas": "delphi", "xml": "xml", "cpp": "cpp"
     }  
 
 
