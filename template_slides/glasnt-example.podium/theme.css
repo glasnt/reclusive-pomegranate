@@ -1,0 +1,426 @@
+/*******************************
+ * Basic slide layout and colors
+ ******************************/
+.hljs-default pre code {
+  background-color: #fff !important;
+  padding: 0;
+}
+
+
+.remark-slide-content {
+    padding: 1em 6em 1em 6em;
+    font-family: 'PT Sans';
+    color: #000;
+}
+
+/***********************
+ * Common content markup
+ ***********************/
+
+h1, h2, h3 {
+    font-family: 'PT Sans';
+    font-weight: 600;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48pt;
+}
+
+h2 {
+    font-size: 36pt;
+}
+
+h3 {
+    font-size: 28pt;
+}
+
+p {
+    font-size: 24pt;
+    line-height: 1.4em;
+}
+
+li {
+    font-size: 24pt;
+    line-height: 1.4em;
+    margin: 0.4em 0;
+}
+
+li p {
+    margin: 0.4em 0;
+}
+
+pre {
+    white-space: pre-wrap;
+    max-width: 100%;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    max-height: 75%;
+    margin: 0 auto;
+}
+
+blockquote p:before {
+  color: #7f7f7c;
+  content: "“";
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.15em;
+  vertical-align: -0.35em;
+}
+
+blockquote p:after {
+  color: #7f7f7c;
+  content: "”";
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-left: 0.15em;
+  vertical-align: -0.55em;
+}
+
+cite {
+    color: #7f7f7c;
+    display: block;
+    text-align: right;
+    margin-top: 1em;
+}
+
+/* Quotes in a list don't need as much padding */
+li cite {
+    margin-top: 0;
+}
+
+/*********************************/
+/* Special content for footnotes */
+/*********************************/
+
+.center { vertical-align: middle }
+
+.righthead { 
+    font-size: 18pt;
+    position: absolute;
+    bottom: 2em;
+    right: 4em;
+    width: 80%;
+    text-align: right;
+}   
+
+.footnotes {
+    font-size: 18pt;
+    position: absolute;
+    bottom: 2em;
+    right: 5em;
+    width: 80%;
+    text-align: right;
+}
+
+.footnotes a { color: grey }
+.footnotes p {
+    font-size: 18pt;
+    margin: 0.2em 0;
+}
+
+/*********************/
+/* Two column layout */
+/*********************/
+.left-column {
+  width: 45%;
+  float: left;
+}
+
+.right-column {
+  width: 45%;
+  float: right;
+}
+
+/****************/
+/* Title slides */
+/****************/
+
+.remark-slide-content.title {
+    vertical-align: middle;
+}
+
+.title h1 {
+    margin: 0.2em;
+}
+
+.title.emoticon h1 {
+    font-size: 128px;
+}
+
+.title.emoticon.flip h1 {
+    font-size: 80px;
+}
+
+.title.emoji h1 {
+    font-size: 256px;
+}
+
+.title h2 {
+    font-size: 36pt;
+    margin: 0.2em;
+    font-weight: bold;
+}
+
+.title h3 {
+    margin: 0.2em;
+    font-weight: normal;
+}
+
+/******************/
+/* Reverse slides */
+/******************/
+
+.remark-slide-content.reverse {
+  /*background-color: #272726;*/
+  color: #f6f7f1;
+}
+
+/***************/
+/* Logo slides */
+/***************/
+
+.remark-slide-content.logo img {
+  margin-top: 15%;
+}
+
+/*********************/
+/* Screenshot slides */
+/*********************/
+
+.remark-slide-content.screenshot img {
+}
+
+/************************/
+/* projection */
+
+.remark-slide-content.image img {
+  margin-top: -50px; max-height: 700px
+}
+.remark-slide-content.background-black {
+    background: #000;
+}
+.remark-slide-content.middle {
+    vertical-align: middle;
+}
+.remark-slide-content.center {
+    text-align: center;
+}
+/*********************/
+/* Django slides */
+/*********************/
+
+.remark-slide-content.django {
+  /*background-color: #092E20;*/
+}
+r { color: #d73a49 }
+l { color: #005cc5 }
+d { color: #032f62 }
+c { color: #6a737d; }
+o { color: #e36209}
+g { color: #6f42c1 }
+ty { color: rgb(215,254,185) }
+tg { color: rgb(0,135,6) }
+w { color: rgb(98,98,98); background-color: rgb(188,188,188)}
+ww { padding: 4px 7px 4px 7px; color: rgb(98,98,98); background-color: rgb(188,188,188)}
+tb { color: rgb(0,135,215) }
+ps { color: rgb(212,212,173) }
+dr { color: rgb(201,135,135) }
+ .left { text-align: left; }
+
+/* Flux font */ .fl { font-family: "DTLProkyonST", regular; }
+.fl a { color: #0C3C26}
+
+/* redacted font */ 
+@font-face { font-family: "RedactedB"; src: url("redacted-script-bold.ttf") format('truetype'); font-style:bold; }
+@font-face { font-family: "RedactedR"; src: url("redacted-script-regular.ttf") format('truetype'); font-style:normal; }
+rb { font-family: "RedactedB", regular;  }
+rr { font-family: "RedactedR", regular;  }
+/* https://github.com/christiannaths/Redacted-Font */
+
+
+/* vectorised terminal */
+code.terminal { 
+    /*background-color: rgb(63,63,63) !important*/
+
+} 
+pre code { 
+   font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace !important;
+   font-size: 24pt !important; 
+   line-height: 32pt !important; 
+   /*margin-left: -50pt !important;*/
+} 
+
+.code { display: inline-block; }
+
+span.foot { position:absolute; top: 670px; right: 1em; font-size: 50%; color: grey}
+span.foot a { color: grey !important}
+.reveal a { color: black}
+
+/*** Vector CSS Terminal Window
+Adapted from https://guides.codechewing.com/mac-terminal-shell-css-html
+Added: Zenburn, mostly. 
+***/
+
+.shell-wrap {
+  width: 1000px;
+  margin: 20px auto 0 auto !important;
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+
+  background: rgb(63,63,63) !important;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.shell-top-bar {
+  text-align: center;
+  color: #525252;
+  padding: 5px 0 !important;
+  margin: 0;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+  font-size: 1em !important;
+  font-family: 'BlinkMacSystemFont', -apple-system, sans-serif !important; 
+  border: 1px solid #CCCCCC;
+  border-bottom: none;
+
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-topright: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+  background: #f7f7f7; /* Old browsers */
+  background: -moz-linear-gradient(top,  #f7f7f7 0%, #B8B8B8 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#B8B8B8)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #f7f7f7 0%,#B8B8B8 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #f7f7f7 0%,#B8B8B8 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #f7f7f7 0%,#B8B8B8 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #f7f7f7 0%,#B8B8B8 100%); /* W3C */
+}
+
+.shell-body {
+  margin: 0;
+  height: 470px;
+  text-align: left;
+  letter-spacing: -0.4px !important;
+  font-size: 17pt !important;
+  color: rgb(199,199,199);
+  font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace !important;
+  line-height: 1.4em !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+
+  padding: 0px 10px 10px 10px !important; 
+  margin-top: -15px !important;
+
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.shell-body p:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.shell-body p {
+  word-wrap: break-word;
+  padding: 5px !important;
+  position: relative;
+  padding: 0 0 0 15px;
+}
+
+/**********************************/
+
+
+.white { color: white}
+.comment { color: green }
+.b { font-weight: bold; }
+.c  {color: grey }
+.lgreen { color: rgb(214, 252, 185) }
+.green { color: rgb(180,251,114)}
+.lblue { color: rgb(165 , 211, 250) }
+.aqua { color: rgb(95,212,231)}
+.mblue { color: rgb(230,231,250)}
+.pink { color: rgb(229,174,255) }
+.keyboard { position: absolute; bottom: 50px; right: 120px; text-align: right; font-family: monospace; background-color: #eff0f19c; padding: 7px; }
+.key { 
+    color: #242729;
+    text-shadow: 0 1px 0 #FFF;
+    background-color: #e1e3e5;
+    border: 1px solid #adb3b9;
+    padding: 7px;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(12,13,14,0.2), 0 0 0 2px #FFF inset;
+}
+
+.tp { color: rgba(0,0,0,0) }
+.code { display: inline-block; }
+
+.ORM { color: white;text-shadow: 1px 1px 6px black, 0 0 136px blue, 0 0 51px green; font-family: arial;}
+.SQL { color: white;text-shadow: 1px 1px 6px black, 0 0 136px red, 0 0 51px yellow; font-family: arial;}
+.UML { color: white;text-shadow: 1px 1px 6px black, 0 0 136px aqua, 0 0 51px purple; font-family: arial;}
+.header { font-size: 200pt; top: 300px; }
+.tagline { font-size: 40pt; padding-top: 100px;}
+.center { text-align: center}
+.far { position: absolute; left: -80px; bottom: 0px; }
+.far2 { position: absolute; left: -80px; bottom: -40px; }
+.smol { font-size: 70%; }
+.small { font-size: 14pt; line-height: 0 !important; padding: 0; }
+.red   { outline: 4px solid #FF6B6B; outline-offset: 5px; }
+.r { color: red }
+.code { font-family: monospace }
+
+.big { font-size: 80pt;} 
+/* redacted font */
+@font-face { font-family: "RedactedB"; src: url("fonts/redacted-script-bold.ttf") format('truetype'); font-style:bold; }
+@font-face { font-family: "RedactedR"; src: url("fonts/redacted-script-regular.ttf") format('truetype'); font-style:normal; }
+rb { font-family: "RedactedB", regular;  }
+rr { font-family: "RedactedR", regular;  }
+/* https://github.com/christiannaths/Redacted-Font */
+
+.venn { position: absolute; right: -50px; top: 100px; }
+@font-face { font-family: "Roboto"; src: url("fonts/Roboto-Regular.ttf") format('truetype'); font-style: normal; }
+.roboto { font-family: "Roboto", regular; }
+
+.bigright { font-size: 40pt; position: absolute; z-index: 100; bottom: 100x; right: 100px; }
+.ghigh { background-color: #acf2bd }
+.impact { font-size: 200%;  font-family: Impact; color: white;
+text-shadow: 1px 1px 0 #000,
+    -1px 1px 0 #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000,
+    0px 1px 0 #000,
+    0px -1px 0 #000,
+    -1px 0px 0 #000,
+    1px 0px 0 #000,
+    2px 2px 0 #000,
+    -2px 2px 0 #000,
+    2px -2px 0 #000,
+    -2px -2px 0 #000,
+    0px 2px 0 #000,
+    0px -2px 0 #000,
+    -2px 0px 0 #000,
+    2px 0px 0 #000,
+    1px 2px 0 #000,
+    -1px 2px 0 #000,
+    1px -2px 0 #000,
+    -1px -2px 0 #000,
+    2px 1px 0 #000,
+    -2px 1px 0 #000,
+    2px -1px 0 #000,
+    -2px -1px 0 #000;
+
+}
+
+.emoji { display: inline-block !important; }

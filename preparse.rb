@@ -126,14 +126,15 @@ file.each do |line|
     #append = " <!-- .slide: class=\"center\" -->"
     type.gsub!("!","")
     if content.include? "|" then
-	    c = "<div style='width: 100%; margin: 0 auto;'><p align='center'>"
+	    c = "<div style='width: 100%; margin: 0 auto;' class='middle center'><p align='center'>"
 	    l = content.split("|").length
 	    a = 800 / l
 	    content.split("|").each do |s|
 	      t = ( s.include? "png") ? s.strip! : "#{s.strip!}.svg"
-	      c += "<img height='#{a}px' src='#{IMG_FOLDER}/#{t}'>"
+	      c += "<img height=\"#{a}px\" class=\"emoji\" src=\"#{IMG_FOLDER}/#{t}\">"
         end
         c += "</p></div>"
+        #content = "class: middle, center\n" + c #TODO 
         content = c
     else 
         content = "class: middle, center\n![Image](#{IMG_FOLDER}/#{content}.svg)"
