@@ -87,7 +87,7 @@ py .green[True]
 
 Lines enter into the slide one at a time, ending at the final line, then goes into the next slide
 
-Assumes `theme.css` exists
+Assumes `style.css` exists (or `theme.css` in order versions of podium)
 
 ## Podium tips
 
