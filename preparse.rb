@@ -15,6 +15,7 @@ result = []
 codetoggle = false
 
 file.each do |line|
+  linebreak = true
   append = ""
   type = line.split(" ").first
   if line.strip.length == 0
@@ -40,13 +41,14 @@ file.each do |line|
   ### Vector Terminal
   ### requires Vector CSS Terminal Window CSS
   if type == "$$terminal" then ## top bar
-    content = "<div class=\"shell-wrap\"><p class=\"shell-top-bar\">#{content}</p><p class=\"shell-body\">"
+    content = "class: shell-body\n"
     type = ""
   end
    
   if type == "$$prompt" then # myrtle prefix
-    content = "<ps>myrtle</ps> <dr>#{content} $</dr> "
+    content = "<ps>myrtle</ps> <dr>#{content} $&nbsp;</dr> "
     type = ""
+    linebreak = false
   end
 
   if type == "$$py" then # Python Prompt
@@ -160,7 +162,7 @@ file.each do |line|
 
   # Ignore generic line separators
   if type == "---" then
-    result << type #"---\nclass: middle, center\n"
+    result << "\n#{type}\n" #"---\nclass: middle, center\n"
     next
   end
 
@@ -217,13 +219,16 @@ file.each do |line|
   newline.gsub!("&gt;","`>`")
 
   result << newline
+  if linebreak then
+    result << "\n"
+  end
 
 end
 
 if output
-  File.open(output, "w") { |f| f.write result.join("\n") }
+  File.open(output, "w") { |f| f.write result.join() }
   puts "Outputted parsed markdown to #{output}"
 else 
-  puts result.join("\n")
+  puts result.join()
 end
 
