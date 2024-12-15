@@ -11,7 +11,9 @@ https://github.com/pybee/podium
  * Make a markdown file, e.g. `myslides.md`
  * Use these fancy shortcuts to extend the default functionality of the markdown format
  * run `ruby preparse.rb myslides.md`
-  * defaults to standard out, or to the specifed file
+ * defaults to standard out, or to the specified file
+
+Bonus `*.rc` entry: `alias podium-parser="fswatch . | (while read; do /path/to/reclusive-pomegranate/preparse.rb myslides.txt slides.md; done)"
 
 ## Shortcuts
 
@@ -19,7 +21,7 @@ This is just a subset of helpers
 
 ### Helpful headers `$$#`
 
-As an example `$$#` automatically renderes to `.righthead[]`, which then links to the `.righthead` css style. 
+As an example `$$#` automatically renders to `.righthead[]`, which then links to the `.righthead` css style.
 
 Helpful reminder, you can chain remark.js css defines by nesting, e.g.: `.styleone[.styletwo[word] .stylethree[another]]`
 
